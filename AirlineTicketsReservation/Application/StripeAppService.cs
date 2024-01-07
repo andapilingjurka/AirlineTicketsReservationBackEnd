@@ -1,11 +1,10 @@
 ﻿using Stripe;
-using AirlineTicketsReservations.Contracts;
-using AirlineTicketsReservations.Models.Stripe;
+using AirlineTicketsReservation.Contracts;
+using AirlineTicketsReservation.Models.Stripe;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AirlineTicketsReservation.Models;
-using AirlineTicketsReservation.Contracts;
 
 namespace AirlineTicketsReservation.Application
 {
