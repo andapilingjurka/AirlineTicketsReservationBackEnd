@@ -16,5 +16,7 @@ namespace AirlineTicketsReservation.Models
         public int ShtetiId { get; set; }
 
         public Shteti Shteti { get; set; }
+
+
     }
 }

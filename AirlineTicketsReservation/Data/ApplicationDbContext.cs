@@ -11,5 +11,19 @@ namespace AirlineTicketsReservation.Data
         }
         public DbSet<Shteti> Shteti { get; set; }
 
+        public DbSet<Qyteti> Qyteti { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Qyteti>()
+            .HasOne(p => p.Shteti)
+            .WithMany()
+            .HasForeignKey(p => p.ShtetiId) //Foreign Key
+            .OnDelete(DeleteBehavior.Restrict);
+
+
+        }
     }
 }
