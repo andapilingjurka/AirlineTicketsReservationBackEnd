@@ -1,7 +1,6 @@
 ﻿
 using System;
 using AirlineTicketsReservation.Models;
-using AirlineTicketsReservation.Models.Stripe;
 
 
 namespace AirlineTicketsReservation.Contracts

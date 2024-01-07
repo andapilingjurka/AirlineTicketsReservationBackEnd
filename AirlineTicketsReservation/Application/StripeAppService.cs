@@ -1,6 +1,5 @@
 ﻿using Stripe;
 using AirlineTicketsReservation.Contracts;
-using AirlineTicketsReservation.Models.Stripe;
 using System;
 using System.Threading;
 using System.Threading.Tasks;

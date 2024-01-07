@@ -1,3 +1,4 @@
+using AirlineTicketsReservation;
 using AirlineTicketsReservation.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,6 +19,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultDBConnection"));
     }
     );
+
+//Stripe
+builder.Services.AddStripeInfrastructure(builder.Configuration);
 
 
 var app = builder.Build();
