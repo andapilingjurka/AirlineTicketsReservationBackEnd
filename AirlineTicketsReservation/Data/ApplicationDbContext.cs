@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AirlineTicketsReservation.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace AirlineTicketsReservation.Data
 {
@@ -8,6 +9,7 @@ namespace AirlineTicketsReservation.Data
           : base(options)
         {
         }
+        public DbSet<Shteti> Shteti { get; set; }
 
     }
 }
