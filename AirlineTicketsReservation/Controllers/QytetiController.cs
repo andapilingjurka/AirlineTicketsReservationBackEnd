@@ -91,5 +91,30 @@ namespace AirlineTicketsReservation.Controllers
             return NoContent();
         }
 
+
+        //Metoda per filtrim
+
+        [HttpGet]
+        [Route("GetFilteredQyteti")]
+        public async Task<IActionResult> GetFilteredQytetiAsync([FromQuery] string orderBy)
+        {
+            IQueryable<Qyteti> qytetiQuery = _db.Qyteti.Include(q => q.Shteti);
+
+            switch (orderBy)
+            {
+                case "A-Z":
+                    qytetiQuery = qytetiQuery.OrderBy(q => q.Emri);
+                    break;
+                case "Z-A":
+                    qytetiQuery = qytetiQuery.OrderByDescending(q => q.Emri);
+                    break;
+                default:
+                    return BadRequest("Invalid orderBy parameter. Use 'A-Z' or 'Z-A'.");
+            }
+
+            var qyteti = await qytetiQuery.ToListAsync();
+            return Ok(qyteti);
+        }
+
     }
 }
