@@ -2,6 +2,7 @@
 using AirlineTicketsReservation.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AirlineTicketsReservation.Controllers
 {
