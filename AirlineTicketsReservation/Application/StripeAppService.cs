@@ -5,6 +5,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AirlineTicketsReservation.Models;
+using AirlineTicketsReservation.Contracts;
 
 namespace AirlineTicketsReservation.Application
 {
