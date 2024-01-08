@@ -15,6 +15,8 @@ namespace AirlineTicketsReservation.Data
         public DbSet<Kontakti> Kontakti { get; set; }
         public DbSet<Perdoruesi> Perdoruesit { get; set; }
 
+        public DbSet<Aeroplani> Aeroplani { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
