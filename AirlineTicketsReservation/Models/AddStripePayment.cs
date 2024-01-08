@@ -6,6 +6,7 @@
      string ExpirationMonth,
      string Cvc,
      string Email,
+     string Description,
      string Currency,
      long Amount
  );

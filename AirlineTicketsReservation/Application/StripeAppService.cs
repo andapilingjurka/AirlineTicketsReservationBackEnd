@@ -63,6 +63,7 @@ namespace AirlineTicketsReservation.Application
                 {
                     Customer = createdCustomer.Id, // Use the customer ID for the payment
                     ReceiptEmail = payment.Email,
+                    Description = payment.Description,
                     Currency = payment.Currency,
                     Amount = payment.Amount
                 };
@@ -80,6 +81,7 @@ namespace AirlineTicketsReservation.Application
                     payment.ExpirationMonth,
                     payment.Cvc,
                     payment.Email,
+                    payment.Description,
                     payment.Currency,
                     payment.Amount,
                     createdPayment.Id);
