@@ -13,6 +13,8 @@ namespace AirlineTicketsReservation.Models
         public int FluturimiId { get; set; }
         public Boolean Kthyese { get; set; }
 
+        public int PerdoruesiId { get; set; }
+        public Perdoruesi Perdoruesi { get; set; }
         public DateTimeOffset Data_e_Rezervimit { get; set; }
         public DateTime? Data_e_Kthimit = null;
 
