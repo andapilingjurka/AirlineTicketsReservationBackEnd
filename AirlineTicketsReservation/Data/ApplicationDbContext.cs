@@ -16,6 +16,7 @@ namespace AirlineTicketsReservation.Data
         public DbSet<Perdoruesi> Perdoruesit { get; set; }
 
         public DbSet<Aeroplani> Aeroplani { get; set; }
+        public DbSet<Fluturimi>Fluturimet { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -27,7 +28,21 @@ namespace AirlineTicketsReservation.Data
             .WithMany()
             .HasForeignKey(p => p.ShtetiId) //Foreign Key
             .OnDelete(DeleteBehavior.Restrict);
+          
+            modelBuilder.Entity<Fluturimi>()
+          .HasOne(p => p.Aeroplani)
+          .WithMany()
+          .HasForeignKey(p => p.AeroplaniId) //Foreign Key
+          .OnDelete(DeleteBehavior.Restrict);
 
+
+
+
+            modelBuilder.Entity<Fluturimi>()
+                .HasOne(cf => cf.Qyteti)
+                .WithMany()
+                .HasForeignKey(cf => cf.QytetiId)
+                 .OnDelete(DeleteBehavior.Restrict);
 
         }
     }
