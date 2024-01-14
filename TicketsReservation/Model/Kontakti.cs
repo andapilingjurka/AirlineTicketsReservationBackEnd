@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AirlineTicketsReservation.Models
+namespace TicketsReservation.Model
 {
     public class Kontakti
     {
