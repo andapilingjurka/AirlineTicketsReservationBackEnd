@@ -1,10 +1,10 @@
-﻿using AirlineTicketsReservation.Data;
-using AirlineTicketsReservation.Models;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using TicketsReservation.Data;
+using TicketsReservation.Model;
 
-namespace AirlineTicketsReservation.Controllers
+namespace TicketsReservation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
