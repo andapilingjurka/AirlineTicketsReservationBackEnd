@@ -143,6 +143,56 @@ namespace AirlineTicketsReservation.Migrations
                     b.ToTable("Qyteti");
                 });
 
+            modelBuilder.Entity("AirlineTicketsReservation.Models.Rezervimi", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<long>("Cmimi")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Currency")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("Data_e_Kthimit")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTimeOffset>("Data_e_Rezervimit")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmriPasagjerit")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FluturimiId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Klasi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Kthyese")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("MbiemriPasagjerit")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PerdoruesiId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FluturimiId");
+
+                    b.HasIndex("PerdoruesiId");
+
+                    b.ToTable("Rezervimet");
+                });
+
             modelBuilder.Entity("AirlineTicketsReservation.Models.Shteti", b =>
                 {
                     b.Property<int>("Id")
@@ -187,6 +237,25 @@ namespace AirlineTicketsReservation.Migrations
                         .IsRequired();
 
                     b.Navigation("Shteti");
+                });
+
+            modelBuilder.Entity("AirlineTicketsReservation.Models.Rezervimi", b =>
+                {
+                    b.HasOne("AirlineTicketsReservation.Models.Fluturimi", "Fluturimi")
+                        .WithMany()
+                        .HasForeignKey("FluturimiId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("AirlineTicketsReservation.Models.Perdoruesi", "Perdoruesi")
+                        .WithMany()
+                        .HasForeignKey("PerdoruesiId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Fluturimi");
+
+                    b.Navigation("Perdoruesi");
                 });
 #pragma warning restore 612, 618
         }

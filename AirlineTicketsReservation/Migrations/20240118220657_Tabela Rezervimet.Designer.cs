@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AirlineTicketsReservation.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240118162952_DataeKthimitMigrim")]
-    partial class DataeKthimitMigrim
+    [Migration("20240118220657_Tabela Rezervimet")]
+    partial class TabelaRezervimet
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -89,31 +89,6 @@ namespace AirlineTicketsReservation.Migrations
                     b.HasIndex("QytetiId");
 
                     b.ToTable("Fluturimet");
-                });
-
-            modelBuilder.Entity("AirlineTicketsReservation.Models.Kontakti", b =>
-                {
-                    b.Property<int>("KontaktID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("KontaktID"));
-
-                    b.Property<string>("Emaili")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Emri")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Mesazhi")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NumriTelefonit")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("KontaktID");
-
-                    b.ToTable("Kontakti");
                 });
 
             modelBuilder.Entity("AirlineTicketsReservation.Models.Perdoruesi", b =>
@@ -209,9 +184,14 @@ namespace AirlineTicketsReservation.Migrations
                     b.Property<string>("MbiemriPasagjerit")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("PerdoruesiId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("FluturimiId");
+
+                    b.HasIndex("PerdoruesiId");
 
                     b.ToTable("Rezervimet");
                 });
@@ -270,7 +250,15 @@ namespace AirlineTicketsReservation.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("AirlineTicketsReservation.Models.Perdoruesi", "Perdoruesi")
+                        .WithMany()
+                        .HasForeignKey("PerdoruesiId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Fluturimi");
+
+                    b.Navigation("Perdoruesi");
                 });
 #pragma warning restore 612, 618
         }
