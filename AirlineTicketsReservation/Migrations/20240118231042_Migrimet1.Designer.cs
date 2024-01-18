@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AirlineTicketsReservation.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240118221230_RezervimetNdryshim")]
-    partial class RezervimetNdryshim
+    [Migration("20240118231042_Migrimet1")]
+    partial class Migrimet1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

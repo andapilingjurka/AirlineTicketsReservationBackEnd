@@ -18,9 +18,9 @@ namespace AirlineTicketsReservation.Models
 
         public DateTimeOffset Data_e_Rezervimit { get; set; }
         public DateTime? Data_e_Kthimit { get; set; }
-       
+
         public Fluturimi Fluturimi { get; set; }
-       
-    
+
+
     }
 }
