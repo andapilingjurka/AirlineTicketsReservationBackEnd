@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AirlineTicketsReservation.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240118220657_Tabela Rezervimet")]
-    partial class TabelaRezervimet
+    [Migration("20240118221230_RezervimetNdryshim")]
+    partial class RezervimetNdryshim
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -184,14 +184,9 @@ namespace AirlineTicketsReservation.Migrations
                     b.Property<string>("MbiemriPasagjerit")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PerdoruesiId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("FluturimiId");
-
-                    b.HasIndex("PerdoruesiId");
 
                     b.ToTable("Rezervimet");
                 });
@@ -250,15 +245,7 @@ namespace AirlineTicketsReservation.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("AirlineTicketsReservation.Models.Perdoruesi", "Perdoruesi")
-                        .WithMany()
-                        .HasForeignKey("PerdoruesiId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Fluturimi");
-
-                    b.Navigation("Perdoruesi");
                 });
 #pragma warning restore 612, 618
         }
