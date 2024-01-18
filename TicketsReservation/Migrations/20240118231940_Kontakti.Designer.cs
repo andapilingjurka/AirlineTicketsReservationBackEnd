@@ -11,7 +11,7 @@ using TicketsReservation.Data;
 namespace TicketsReservation.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240114232259_Kontakti")]
+    [Migration("20240118231940_Kontakti")]
     partial class Kontakti
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
