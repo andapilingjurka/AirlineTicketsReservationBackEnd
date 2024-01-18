@@ -17,7 +17,7 @@ namespace AirlineTicketsReservation.Data
         public DbSet<Aeroplani> Aeroplani { get; set; }
         public DbSet<Fluturimi>Fluturimet { get; set; }
 
-        public DbSet<Rezervimi> Rezervimet { get; set; }
+       
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -41,12 +41,7 @@ namespace AirlineTicketsReservation.Data
                 .HasForeignKey(cf => cf.QytetiId)
                  .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Rezervimi>()
-               .HasOne(p => p.Fluturimi)
-               .WithMany()
-               .HasForeignKey(p => p.FluturimiId) //Foreign Key
-               .OnDelete(DeleteBehavior.Restrict);
-
+          
             
         }
     }
