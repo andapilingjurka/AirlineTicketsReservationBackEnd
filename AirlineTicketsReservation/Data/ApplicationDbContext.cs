@@ -48,11 +48,7 @@ namespace AirlineTicketsReservation.Data
                .HasForeignKey(p => p.FluturimiId) //Foreign Key
                .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Rezervimi>()
-              .HasOne(p => p.Perdoruesi)
-              .WithMany()
-              .HasForeignKey(p => p.PerdoruesiId) //Foreign Key
-              .OnDelete(DeleteBehavior.Restrict);
+            
         }
     }
 }
